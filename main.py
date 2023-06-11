@@ -80,6 +80,7 @@ def SwitchPlayer():
     elif currentPlayer == 'O' and inputted:
         currentPlayer = 'X'
 
+#Game Run
 while gameRunning:
     printBoard(board)
     playerInput(board)
