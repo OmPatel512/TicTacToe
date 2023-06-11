@@ -4,6 +4,7 @@ board = ['-', '-', '-',
 currentPlayer = "X"
 winner = None
 gameRunning = True
+inputted = True
 
 def printBoard(board):
     print(f'Current Player is {currentPlayer}')
@@ -14,11 +15,14 @@ def printBoard(board):
     print(board[6] + " | " + board[7] + " | " + board[8])
 
 def playerInput(board):
+    global inputted
+    inputted = True
     inp = int(input("Enter a number between 1-9: "))
     if (inp >= 1 and inp <= 9) and board[inp - 1] == '-':
         board[inp - 1] = currentPlayer
     else:
         print("Ooops that spot already used!")
+        inputted = False
 
 
 #check for win or tie
@@ -71,9 +75,9 @@ def CheckTie(board):
 #Switch PLayer
 def SwitchPlayer():
     global currentPlayer
-    if currentPlayer == 'X':
+    if currentPlayer == 'X' and inputted:
         currentPlayer = 'O'
-    else:
+    elif currentPlayer == 'O' and inputted:
         currentPlayer = 'X'
 
 while gameRunning:
