@@ -60,4 +60,10 @@ def CheckTie(board):
         printBoard(board)
         print('It is Tie')
         gameRunning = False
-        
+
+def SwitchPlayer():
+    global currentPlayer
+    if currentPlayer == 'X':
+        currentPlayer = 'O'
+    else:
+        currentPlayer = 'X'
